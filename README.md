@@ -65,9 +65,9 @@ The code below shows an example of a basic `Adapter` implementation.
 
 ```java
 @Adapts		// <-- (1) 
-public class AdaptA2B implements Adapter<A, B> {	/* <-- (2) */
+public class AdaptA2B implements Adapter<A, B> {	// <-- (2) 
 	
-	private class Adaption implements B  {	/* <-- (3) */
+	private class Adaption implements B  {	// <-- (3) 
 		
 		private A a;
 		
@@ -75,27 +75,27 @@ public class AdaptA2B implements Adapter<A, B> {	/* <-- (2) */
 			this.a = a;
 		}
 
-		@Override	/* <-- (4) */
+		@Override	// <-- (4) 
 		public Long getLongNumber() { return Long.valueOf(a.getNumber()); }
 
-		@Override	/* <-- (4) */
+		@Override	// <-- (4) 
 		public String getTitle() { return "Title: "+a.getName(); }
 
-		@Override	/* <-- (4) */
+		@Override	// <-- (4) 
 		public long getTime() { return (a.getDate()==null)?0:a.getDate().getTime(); }
 		
 	}
 
-	@Override	/* <-- (5) */
+	@Override	// <-- (5) 
 	public Class<A> adaptFrom() { return A.class; }
 
-	@Override	/* <-- (6) */
+	@Override	// <-- (6) 
 	public Class<B> adaptTo() { return B.class; }
 
-	@Override	/* <-- (7) */
+	@Override	// <-- (7) 
 	public B adapt(A from) { return new Adaption(from); }
 
-	@Override	/* <-- (8) */
+	@Override	// <-- (8) 
 	public Class<? extends B> getAdapter() { return Adaption.class; }
 
 }
