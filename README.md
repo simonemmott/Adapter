@@ -64,8 +64,8 @@ To work with the Adapter project the developer must include the above dependency
 The code below shows an example of a basic `Adapter` implementation.
 
 ```java
-@Adapts		/* <-- (1) */
-public class AdaptA2B implements Adapter<A, B> {		/* <-- (2) */
+@Adapts		// <-- (1) 
+public class AdaptA2B implements Adapter<A, B> {	/* <-- (2) */
 	
 	private class Adaption implements B  {	/* <-- (3) */
 		
